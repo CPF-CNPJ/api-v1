@@ -4,34 +4,35 @@ PHP sample code for API v1 queries
 
 www.cpfcnpj.com.br/dev
 
-## Install SDK for (PHP)HTTP v2 #
+## Install PHP cURL extension
 
-This extension is hosted at [PECL](http://pecl.php.net/) and can be installed with [http://pear.php.net/](http://pecl.php.net/)’s pecl command:
+In order to install this library via composer run the following command in the console:
 
 ```bash
-# pecl install pecl_http
+composer require curl/curl
 ```
-
-## Dependencies
-
-pecl/http depends on a number of system libraries and  PHP  extensions for special features.
-
-## Required system libraries
-
-The following system libraries are required to build this extension:
-
-zlib
-
-Provides gzip/zlib/deflate encoding.
-
-Configure: --with-http-zlib-dir
-
-Minimum version: 1.2.0.4
-
-Install on Debian: 
+or add the package manually to your composer.json file in the require section:
 
 ```bash
-apt-get install zlib1g-dev
+"curl/curl": "^2.0"
 ```
 
 ## Creating a Request
+
+```php
+include 'vendor/autoload.php';
+
+$curl = new Curl\Curl();
+
+$params = array(
+    "token" => "5ae973d7a997af13f0aaf2bf60e65803",
+    "pacote" => 9,
+    "cpfcnpj" => '45317828791'
+);
+$curl->get('https://api.cpfcnpj.com.br/'.$params["token"].'/'.$params["pacote"].'/'.$params["cpfcnpj"]);
+$curl->close();
+
+$response = json_decode($curl->response, 1);
+
+print_r($response);
+```
