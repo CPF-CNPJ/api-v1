@@ -1,6 +1,6 @@
 # API v1 Query Examples
 
-Based on the PHP example, here are code samples in several popular programming languages for querying the API available at [www.cpfcnpj.com.br/dev](https://www.cpfcnpj.com.br/dev).
+Based on the PHP example, here are code samples in several popular programming languages for querying the API available at [en.cpfcnpj.com.br/dev](https://en.cpfcnpj.com.br/dev).
 
 ## Prerequisites
 
